@@ -1,42 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>library</title>
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-    <div class="container">
-        <section class="modal hidden">
-            <div class="first-line-modal">
-                <div class="modal-heading">
-                    BOOK Details
-                </div>
-                <div class="close-btn">
-                    <button>⨉</button>
-                </div>
-                
-            </div>
-            <form action="/">
-                <label for="title">BOOK NAME</label><br>
-                <input name="title" type="text"><br>
-                <label for="author">AUTHOR</label><br>
-                <input type="text" name="author" id="author"><br>
-                <label for="number-of-pages">Number of pages</label><br>
-                <input type="number" name="number-of-pages" id="number-of-pages"><br>
-                <label for="read-status">Have you read the book?</label>
-                <input type="checkbox" name="read-status" id="read-status">
-                <br><button type="submit">ADD BOOK</button>
-            </form>
-        </section>
-        <div class="overlay hidden"></div>
-        <div class="add-book-btn">
-            <button>ADD BOOK</button>
-        </div>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="./toggle_button.css"> -->
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">LIBRARY</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="."
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form> -->
+      </div>
+    </nav>
+
+    <div class="container" style="background-color: rgb(84, 84, 84)">
+      <div class="row d-flex">
+        <button
+          type="button"
+          class="btn btn-danger btn-lg w-100 btn-add-book"
+          id="add-book"
+          data-toggle="modal"
+          data-target="#ModalCenter"
+        >
+          ADD BOOK
+        </button>
+      </div>
+      <div class="row" id="row"></div>
     </div>
-    <script src="./script.js"></script>
-</body>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="ModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="myForm" >
+              <div class="form-group row">
+                <label for="inputBookName" class="col-sm-2 col-form-label"
+                  >Book</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputText"
+                    placeholder="Book Name"
+                    name="inputBookName"
+                    autocomplete="off"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputAuthor" class="col-sm-2 col-form-label"
+                  >Author</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputAuthor"
+                    placeholder="Author Name"
+                    name="inputAuthor"
+                    autocomplete="off"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputNumber" class="col-sm-2 col-form-label"
+                  >Pages</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="inputNumber"
+                    placeholder="Number of pages"
+                    min="0"
+                    value="0"
+                    name="inputNumber"
+                    autocomplete="off"
+                    
+                  />
+                </div>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="read_status"
+                  name="read_status"
+                  autocomplete="off"
+                  
+                />
+                <label class="form-check-label" for="read_status">
+                  Read Status
+                </label>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  id="closeModal"
+                >
+                  Close
+                </button>
+                <button type="submit" id="save" class="btn btn-primary">
+                  Save Book
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal ends -->
+
+    <template>
+      <div class="col" id="card_book">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title" id="card_book_name">book name</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="card_author">
+              AUTHOR
+            </h6>
+            <p class="card-text" id="card_pages">NUMBER OF PAGES -</p>
+            <button
+              type="button"
+              class="btn btn-sm change_status"
+              id="card_read_status"
+            >
+              READ
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-primary remove_card"
+              style="float: right"
+              id="remove_card"
+            >
+              REMOVE
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
 </html>

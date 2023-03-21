@@ -1,0 +1,29 @@
+/* * {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+}  */
+
+* {
+  white-space: normal !important;
+  box-shadow: none !important;
+}
+html body {
+  background-color: rgb(63, 62, 62);
+}
+.change_status {
+  min-width: 75px !important;
+}
+
+#add-book {
+  margin: 10px 0px 10px;
+}
+.card {
+  margin: 15px 15px 15px 0px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
